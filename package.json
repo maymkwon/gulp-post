@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "post",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   "devDependencies": {
     "autoprefixer": "^6.4.1",
     "browser-sync": "^2.15.0",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.1",
@@ -23,6 +24,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maymkwon/gulp-post.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maymkwon/gulp-post/issues"
+  },
+  "homepage": "https://github.com/maymkwon/gulp-post#readme"
 }

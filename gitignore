@@ -1,7 +1,0 @@
-# Build systems#
-################
-node_modules/
-bower_components/
-build/
-dist/
-*.css.map

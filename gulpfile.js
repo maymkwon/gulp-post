@@ -9,19 +9,20 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('autoprefixer'),
     lost = require('lost'),
+    del = require('del'),
     precss = require('precss');
 
 var paths = {
   cssSource: 'src/p_css/',
   jsSource: 'src/js/',
-  cssDestination: 'dist/css/',
-  jsDestination: 'dist/js/'
+  cssDestination: 'css/',
+  jsDestination: 'js/'
 };
 
 
-// //////////
-//  Script
-// //////////
+// /////////////////////////////////
+//  Script 업무//////////////////////
+// /////////////////////////////////
 gulp.task('script', function(){
     gulp.src(paths.jsSource + '**/*.js')
     .pipe(rename({suffix:'.min'}))
@@ -31,9 +32,9 @@ gulp.task('script', function(){
 });
 
 
-// //////////
-//  Styles
-// //////////
+// /////////////////////////////////
+//  Styles 업무//////////////////////
+// /////////////////////////////////
 gulp.task('styles', function() {
   return gulp.src(paths.cssSource + '**/*.css')
     .pipe(plumber())
@@ -48,32 +49,79 @@ gulp.task('styles', function() {
     .pipe(uglifycss({
         "uglyComments": true
     }))
-    .pipe(rename({suffix:'.min'}))
+    .pipe(rename({
+        suffix:'.min',
+        basename: "style"
+    }))
     .pipe(gulp.dest(paths.cssDestination))
     .pipe(reload({stream:true}));
 });
 
+
+// /////////////////////////////////
+//  HTML 업무 //////////////////////
+// /////////////////////////////////
 gulp.task('html',function () {
     gulp.src('./index.html')
     .pipe(reload({stream:true}));
 });
 
+
+
+
+// /////////////////////////////////
+//  BUILD 업무 //////////////////////
+// /////////////////////////////////
+gulp.task('build:cleanfolder',function(cb) {
+        del([
+            'build/**'
+        ], cb);
+});
+
+
+gulp.task('build:copy',function() {
+    return gulp.src('app/**/*/')
+    .pipe(gulp.dest('build/'));
+});
+
+
+gulp.task('build:remove',['build:copy'],function(cb) {
+    del([
+        'build/src/',
+        'build/css/!(*.min.css)',
+        'build/js/!(*.min.js)'
+    ], cb);
+});
+
+
+gulp.task('build', ['build:copy','build:remove']);
+
+
+// /////////////////////////////////
+//  browser-sync 업무 //////////////////////
+// /////////////////////////////////
 gulp.task('browser-sync', function(){
     browserSync({
         server:{
-            baseDir:"./"
+            baseDir:"./app"
         }
     });
 });
 
+
+// /////////////////////////////////
+//  WATCH 업무 //////////////////////
+// /////////////////////////////////
 gulp.task('watch', function () {
     gulp.watch(paths.cssSource + '**/*.css', ['styles']);
     gulp.watch(paths.jsSource + '**/*.js', ['script']);
     gulp.watch('./index.html', ['html']);
 
 });
-// //////////
-//  DEFAULT
-// //////////
+
+
+// /////////////////////////////////
+//  DEFAULT //////////////////////
+// /////////////////////////////////
 
 gulp.task('default', ['html','styles','script','browser-sync','watch']);
