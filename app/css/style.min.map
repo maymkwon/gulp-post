@@ -1,0 +1,1 @@
+{"version":3,"sources":["p_style.css"],"names":[],"mappings":"AAAA;IACI,UAAU;IACV,WAAW;CACd;AACD;IACI,gBAAgB;CACnB","file":"p_style.css","sourcesContent":["*{\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\nh1{\r\n    font-size: 10px;\r\n}\r\n"],"sourceRoot":"/source/"}

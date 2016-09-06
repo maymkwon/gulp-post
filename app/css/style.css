@@ -2,11 +2,8 @@
     margin: 0;
     padding: 0;
 }
-header{
-    background-color: red;
-}
-.notice--clear {
-    background: green
+h1{
+    font-size: 10px;
 }
 
 /*# sourceMappingURL=p_style.css.map */

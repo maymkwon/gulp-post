@@ -13,10 +13,10 @@ var gulp = require('gulp'),
     precss = require('precss');
 
 var paths = {
-  cssSource: 'src/p_css/',
-  jsSource: 'src/js/',
-  cssDestination: 'css/',
-  jsDestination: 'js/'
+  cssSource: 'app/src/p_css/',
+  jsSource: 'app/src/js/',
+  cssDestination: 'app/css/',
+  jsDestination: 'app/js/'
 };
 
 
@@ -45,6 +45,9 @@ gulp.task('styles', function() {
       autoprefixer({ browserslist: ['> 1%, last 2 versions, Firefox ESR,ie 8'] })
     ]))
     .pipe(sourcemaps.write('./'))
+    .pipe(rename({
+        basename: "style"
+    }))
     .pipe(gulp.dest(paths.cssDestination))
     .pipe(uglifycss({
         "uglyComments": true
@@ -62,7 +65,7 @@ gulp.task('styles', function() {
 //  HTML 업무 //////////////////////
 // /////////////////////////////////
 gulp.task('html',function () {
-    gulp.src('./index.html')
+    gulp.src('app/index.html')
     .pipe(reload({stream:true}));
 });
 
@@ -79,7 +82,7 @@ gulp.task('build:cleanfolder',function(cb) {
 });
 
 
-gulp.task('build:copy',function() {
+gulp.task('build:copy',['build:cleanfolder'],function() {
     return gulp.src('app/**/*/')
     .pipe(gulp.dest('build/'));
 });
@@ -115,7 +118,7 @@ gulp.task('browser-sync', function(){
 gulp.task('watch', function () {
     gulp.watch(paths.cssSource + '**/*.css', ['styles']);
     gulp.watch(paths.jsSource + '**/*.js', ['script']);
-    gulp.watch('./index.html', ['html']);
+    gulp.watch('app/index.html', ['html']);
 
 });
 

@@ -2,14 +2,6 @@
     margin: 0;
     padding: 0;
 }
-header{
-    background-color: red;
-}
-.notice--clear {
-    @if 3 < 5 {
-        background: green;
-    }
-    @else {
-        background: blue;
-    }
+h1{
+    font-size: 10px;
 }
