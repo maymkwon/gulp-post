@@ -10,15 +10,18 @@ var gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
     lost = require('lost'),
     del = require('del'),
-    precss = require('precss');
+    precss = require('precss'),
+    willchange = require("postcss-will-change"),
+    browserslist = require("browserslist");
+    // cssnext = require('cssnext');
+    colorRgbaFallback = require("postcss-color-rgba-fallback");
 
 var paths = {
-  cssSource: 'app/src/p_css/',
+  cssSource: 'app/src/post-css/',
   jsSource: 'app/src/js/',
   cssDestination: 'app/css/',
   jsDestination: 'app/js/'
 };
-
 
 // /////////////////////////////////
 //  Script 업무//////////////////////
@@ -36,15 +39,18 @@ gulp.task('script', function(){
 //  Styles 업무//////////////////////
 // /////////////////////////////////
 gulp.task('styles', function() {
-  return gulp.src(paths.cssSource + '**/*.css')
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(postcss([
-      lost(),
-      precss(),
-      autoprefixer({ browserslist: ['> 1%, last 2 versions, Firefox ESR,ie 8'] })
-    ]))
-    .pipe(sourcemaps.write('./'))
+  return gulp.src(paths.cssSource + 'style.css')
+    .pipe(  plumber()   )
+    .pipe(  sourcemaps.init()   )
+    .pipe(  postcss([
+        lost(),
+        precss(),
+    ]),
+    colorRgbaFallback(),
+    willchange(),
+    autoprefixer(browserslist(['last 3 versions','Firefox <= 20']))
+    )
+    .pipe(  sourcemaps.write('./')  )
     .pipe(rename({
         basename: "style"
     }))
@@ -76,9 +82,9 @@ gulp.task('html',function () {
 //  BUILD 업무 //////////////////////
 // /////////////////////////////////
 gulp.task('build:cleanfolder',function(cb) {
-        del([
-            'build/**'
-        ], cb);
+    del([
+        'build/**'
+    ], cb);
 });
 
 

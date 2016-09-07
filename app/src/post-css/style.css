@@ -1,0 +1,10 @@
+@import 'parts/_vars.css';
+
+header {
+  lost-masonry-wrap: flex 60px;
+}
+
+div {
+  lost-masonry-column: 1/3 60px flex;
+  background-color: #000;
+}

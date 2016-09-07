@@ -9,6 +9,7 @@
   "devDependencies": {
     "autoprefixer": "^6.4.1",
     "browser-sync": "^2.15.0",
+    "cssnext": "^1.8.4",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-plumber": "^1.1.0",
@@ -18,6 +19,9 @@
     "gulp-uglify": "^2.0.0",
     "gulp-uglifycss": "^1.0.6",
     "lost": "^7.1.0",
+    "postcss-color-rgba-fallback": "^2.2.0",
+    "postcss-import": "^8.1.2",
+    "postcss-will-change": "^1.1.0",
     "precss": "^1.4.0",
     "uglifycss": "0.0.21"
   },
