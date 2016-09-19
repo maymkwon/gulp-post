@@ -11,9 +11,9 @@ var gulp = require('gulp'),
     lost = require('lost'),
     del = require('del'),
     precss = require('precss'),
-    willchange = require("postcss-will-change"),
+    rucksack = require('rucksack-css'),
     browserslist = require("browserslist");
-    // cssnext = require('cssnext');
+    awesome = require("postcss-font-awesome");
     colorRgbaFallback = require("postcss-color-rgba-fallback");
 
 var paths = {
@@ -39,17 +39,18 @@ gulp.task('script', function(){
 //  Styles 업무//////////////////////
 // /////////////////////////////////
 gulp.task('styles', function() {
+    var processors =[
+            precss({}),
+            lost,
+            rucksack({  fallbacks: true }),
+            autoprefixer({ browsers: ['last 3 versions'] }),
+            colorRgbaFallback,
+            awesome({   replacement:false})
+    ];
   return gulp.src(paths.cssSource + 'style.css')
     .pipe(  plumber()   )
     .pipe(  sourcemaps.init()   )
-    .pipe(  postcss([
-        lost(),
-        precss(),
-    ]),
-    colorRgbaFallback(),
-    willchange(),
-    autoprefixer(browserslist(['last 3 versions','Firefox <= 20']))
-    )
+    .pipe(  postcss(processors)   )
     .pipe(  sourcemaps.write('./')  )
     .pipe(rename({
         basename: "style"
@@ -58,6 +59,7 @@ gulp.task('styles', function() {
     .pipe(uglifycss({
         "uglyComments": true
     }))
+    // .pipe(csswring())
     .pipe(rename({
         suffix:'.min',
         basename: "style"
