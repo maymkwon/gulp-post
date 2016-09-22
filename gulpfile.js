@@ -5,6 +5,7 @@ var  gulp = require('gulp'),
         browserSync = require('browser-sync'),
         reload = browserSync.reload,
         plumber = require('gulp-plumber'),
+        styleGuide = require('postcss-style-guide'),
         postcss = require('gulp-postcss'),
         sourcemaps = require('gulp-sourcemaps'),
         autoprefixer = require('autoprefixer'),
@@ -68,15 +69,20 @@ gulp.task('img', function () {
 // /////////////////////////////////
 //  Styles 업무//////////////////////
 // /////////////////////////////////
+var processors =[
+        precss({}),
+        lost,
+        rucksack({  fallbacks: true }),
+        autoprefixer({ browsers: ['last 3 versions'] }),
+        colorRgbaFallback,
+        styleGuide({
+                project: 'Project name',
+                dest: 'styleguide/index.html',
+                theme: '1column',
+        }),
+        awesome({   replacement:false})
+];
 gulp.task('styles', function() {
-    var processors =[
-            precss({}),
-            lost,
-            rucksack({  fallbacks: true }),
-            autoprefixer({ browsers: ['last 3 versions'] }),
-            colorRgbaFallback,
-            awesome({   replacement:false})
-    ];
   return gulp.src(paths.cssSource + 'style.css')
     .pipe(  plumber()   )
     .pipe(  sourcemaps.init()   )
@@ -147,3 +153,9 @@ gulp.task('browser-sync', function(){
         }
     });
 });
+
+
+
+// /////////////////////////////////
+//  Style-Guide 업무 //////////////////////
+// /////////////////////////////////

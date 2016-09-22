@@ -156,5 +156,108 @@ input[type="range"]{
 input[type="range"]::-moz-focus-outer{
         border: 0;
 }
+/*
+This is the h1 style
+
+<h1>Heading 1</h1>
+
+*/
+
+h1 { font-size: 42px; }
+
+/*
+These use the .tile class
+
+<div class="row">
+    <div class="tile">This is a Tile</div>
+    <div class="tile">This is a Tile</div>
+    <div class="tile">This is a Tile</div>
+    <div class="tile">This is a Tile</div>
+    <div class="tile">This is a Tile</div>
+</div>
+
+*/
+
+.tile {
+    width: calc(99.9% * 1/5 - (30px - 30px * 1/5));
+    padding: 60px 25.888px;
+    padding: 3.75rem 1.618rem;
+    text-align: center;
+    font-size: 20px;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.tile:nth-child(1n){
+        float: left;
+        margin-right: 30px;
+        clear: none;
+}
+
+.tile:last-child{
+        margin-right: 0;
+}
+
+.tile:nth-child(0n){
+        float: right;
+}
+/*
+@styleguide
+
+@title Button
+
+Use the button classes on and `<a>`, `<button>`, `<input>` elements.
+
+<button class="button button--large button--red">Red Button</button>
+<button class="button button--large button--red">Red Button</button>
+
+    <button class="button button--large button--red">Red Button</button>
+    <button class="button button--large button--red">Red Button</button>
+
+<button class="button button--large button--blue">Red Button</button>
+
+    <button class="button button--large button--blue">Red Button</button>
+
+*/
+.button {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button--large {
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.button--red {
+    color: #fff;
+    background-color: var(--red);
+}
+
+.button--blue {
+    color: #fff;
+    background-color: var(--blue);
+}
+/*
+@styleguide
+@h1
+
+Use the button classes on and `<h1>` elements.
+
+<h1>head</h1>
+*/
+h1{
+        font-size: 12px;
+}
 
 /*# sourceMappingURL=style.css.map */
