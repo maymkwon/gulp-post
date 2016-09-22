@@ -55,7 +55,7 @@ input::placeholder {
   display: inline-block;
   font-size: 10px;
 }
-
+$blue: #056ef0;
 .phone{
         background: url('../../images/1.png') no-repeat;
 }
@@ -141,12 +141,12 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
 .button--red {
     color: #fff;
-    background-color: var(--red);
+    background-color:$blue;
 }
 
 .button--blue {
     color: #fff;
-    background-color: var(--blue);
+    background-color: $blue;
 }
 /*
 @styleguide
