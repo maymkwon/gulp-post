@@ -1,20 +1,21 @@
-var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
-    uglifycss = require('gulp-uglifycss'),
-    rename = require('gulp-rename'),
-    browserSync = require('browser-sync'),
-    reload = browserSync.reload,
-    plumber = require('gulp-plumber'),
-    postcss = require('gulp-postcss'),
-    sourcemaps = require('gulp-sourcemaps'),
-    autoprefixer = require('autoprefixer'),
-    lost = require('lost'),
-    del = require('del'),
-    precss = require('precss'),
-    rucksack = require('rucksack-css'),
-    browserslist = require("browserslist");
-    awesome = require("postcss-font-awesome");
-    colorRgbaFallback = require("postcss-color-rgba-fallback");
+var  gulp = require('gulp'),
+        uglify = require('gulp-uglify'),
+        uglifycss = require('gulp-uglifycss'),
+        rename = require('gulp-rename'),
+        browserSync = require('browser-sync'),
+        reload = browserSync.reload,
+        plumber = require('gulp-plumber'),
+        postcss = require('gulp-postcss'),
+        sourcemaps = require('gulp-sourcemaps'),
+        autoprefixer = require('autoprefixer'),
+        imagemin = require('gulp-imagemin'),
+        lost = require('lost'),
+        del = require('del'),
+        precss = require('precss'),
+        rucksack = require('rucksack-css'),
+        browserslist = require("browserslist");
+        awesome = require("postcss-font-awesome");
+        colorRgbaFallback = require("postcss-color-rgba-fallback");
 
 var paths = {
   cssSource: 'app/src/post-css/',
@@ -22,6 +23,24 @@ var paths = {
   cssDestination: 'app/css/',
   jsDestination: 'app/js/'
 };
+
+// /////////////////////////////////
+//  DEFAULT //////////////////////
+// /////////////////////////////////
+
+gulp.task('default', ['html','styles','script','browser-sync','img','watch']);
+
+
+// /////////////////////////////////
+//  WATCH 업무 //////////////////////
+// /////////////////////////////////
+gulp.task('watch', function () {
+        gulp.watch(paths.cssSource + '**/*.css', ['styles']);
+        gulp.watch(paths.jsSource + '**/*.js', ['script']);
+        gulp.watch('app/index.html', ['html']);
+        gulp.watch('app/src/images/*', ['img']);
+});
+
 
 // /////////////////////////////////
 //  Script 업무//////////////////////
@@ -32,6 +51,17 @@ gulp.task('script', function(){
     .pipe(uglify())
     .pipe(gulp.dest(paths.jsDestination))
     .pipe(reload({stream:true}));
+});
+
+
+// /////////////////////////////////
+//  Image 업무//////////////////////
+// /////////////////////////////////
+gulp.task('img', function () {
+        return gulp.src('./app/src/images/*')
+        .pipe(imagemin( {progressive:true, optimizationLevel:7} ))
+        .pipe(gulp.dest('./app/images'))
+        .pipe(reload(   {stream:true}   ));
 });
 
 
@@ -59,7 +89,6 @@ gulp.task('styles', function() {
     .pipe(uglifycss({
         "uglyComments": true
     }))
-    // .pipe(csswring())
     .pipe(rename({
         suffix:'.min',
         basename: "style"
@@ -118,21 +147,3 @@ gulp.task('browser-sync', function(){
         }
     });
 });
-
-
-// /////////////////////////////////
-//  WATCH 업무 //////////////////////
-// /////////////////////////////////
-gulp.task('watch', function () {
-    gulp.watch(paths.cssSource + '**/*.css', ['styles']);
-    gulp.watch(paths.jsSource + '**/*.js', ['script']);
-    gulp.watch('app/index.html', ['html']);
-
-});
-
-
-// /////////////////////////////////
-//  DEFAULT //////////////////////
-// /////////////////////////////////
-
-gulp.task('default', ['html','styles','script','browser-sync','watch']);
