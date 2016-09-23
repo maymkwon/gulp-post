@@ -1,4 +1,10 @@
 
+header{
+        background-color: red;
+}
+main{
+        background-color: blue;
+}
 section{
         position: relative;
         top: 20%;

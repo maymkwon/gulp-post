@@ -3,8 +3,12 @@
 
 
 
-
-
+header{
+        background-color: red;
+}
+main{
+        background-color: blue;
+}
 section{
         lost-utility:clearfix;
         position: relative 20% auto;
