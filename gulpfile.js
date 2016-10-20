@@ -60,7 +60,7 @@ gulp.task('script', function(){
 // /////////////////////////////////
 gulp.task('img', function () {
         return gulp.src('./app/src/images/*')
-        .pipe(imagemin( {progressive:true, optimizationLevel:7} ))
+        .pipe(imagemin( {progressive:true, optimizationLevel:6} ))
         .pipe(gulp.dest('./app/images'))
         .pipe(reload(   {stream:true}   ));
 });

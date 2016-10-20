@@ -10,30 +10,30 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <!-- <link rel="stylesheet" href="css/main.css"> -->
+
         <link rel="stylesheet" href="css/style.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
+        <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- Add your site or application content here -->
         <div class="body_wrap">
-            <header>
+            <header class="header">
                 <div class="header_wrap">
                     <h1>
-                        <a href="#">
-                            <img src="./images/logo.svg" alt="callsync logo">
+                        <a href="#" class="logo">
+                            <!-- <img src="./images/logo.svg" alt="callsync logo"> -->
                         </a>
                     </h1>
                     <nav>
                         <ul>
-                            <li><a href="">홈</a></li>
-                            <li><a href="">공지사항</a></li>
-                            <li><a href="">자주묻는 질문</a></li>
-                            <li><a href="">문의하기</a></li>
+                            <li><a href="./index.html">홈</a></li>
+                            <li><a href="./call_notice.html">공지사항</a></li>
+                            <li><a href="./call_faq.html">자주묻는 질문</a></li>
+                            <li><a href="./call_contact.html">문의하기</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -41,27 +41,38 @@
             <main>
                 <div class="container">
                     <div class="content">
-                        <div class="content-left">
+                        <div class="content-text">
                             <h2>콜싱크</h2>
                             <p><strong>가장 쉽고 빠르게!</strong>PC에서 전화와 문자를 관리하는 방법!</p>
                             <p>지금바로 콜싱크 앱을 PC에 설치하고<br>안드로이드 폰과 연결해 보세요</p>
                             <div class="down-link-wrap">
                                 <div class="down-link">
-                                    <span>PC 앱</span>
+                                    <span class="cate">PC 앱</span>
                                     <div class="btn-g">
-                                        <a href="#">Window</a>
-                                        <a href="#">MAC</a>
+                                        <a href="#">
+                                            <img src="./images/icon_windows.svg" alt="">
+                                            <span>Windows</span>
+                                        </a>
+                                        <a href="#">
+                                            <img src="./images/icon_mac.svg" alt="">
+                                            <span>MAC</span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="down-link">
-                                    <span>PHONE 앱</span>
+                                    <span class="cate">PHONE 앱</span>
                                     <div class="btn-g">
-                                        <a href="#">google play</a>
+                                        <a href="#">
+                                            <img src="./images/icon_googleplay.svg" alt="">
+                                            <span>
+                                                <small>Android App on</small>
+                                                GOOGLE PLAY</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="content-right">
+                        <div class="content-img">
                             <img src="./images/callsync-main.png" alt="callsync-main"style="width:215px;" class="main">
                             <img src="./images/callsync-detail.png" alt="callsync-detail" style="width:388px;" class="detail">
                         </div>
@@ -103,45 +114,73 @@
                     </div>
                 </div>
             </section>
-            <section class="function">
+            <section class="col left">
                 <div class="container">
-                    <h2>다양한 기능, 끝없는 가능성!</h2>
-                    <div>
-                        <ul class="function-list">
-                            <li>
-                                <img src="./images/contents_icon_01.png" alt="" />
-                                전화받기 / 걸기
-                            </li>
-                            <li>
-                                <img src="./images/contents_icon_02.png" alt="" />
-                                문자 받기 / 보내기
-                            </li>
-                            <li>
-                                <img src="./images/contents_icon_03.png" alt="" />
-                                링크문자 만들기 / 보내기
-                            </li>
-                            <li>
-                                <img src="./images/contents_icon_04.png" alt="" />
-                                배경화면 / 색상 꾸미기
-                            </li>
-                            <li>
-                                <img src="./images/contents_icon_05.png" alt="" />
-                                PC에서 주소록 편집하기
-                            </li>
-                            <li>
-                                <img src="./images/contents_icon_06.png" alt="" />
-                                PC에서 스마트폰으로 영상통화
-                            </li>
-                        </ul>
+                    <div class="content-img">
+                        <img src="./images/section1.png" alt="" style="width:100%;">
+                    </div>
+                    <div class="content-text">
+                        <img src="./images/contents_icon_02.png" alt=""class="text-icon">
+                        <h2>Pc에서 가볍게,<br>새로운 문자 보내기부터<br>그룹문자 발송, 수신,<br> 관리까지! </h2>
+                        <p>휴대폰으로 오는 문자들을 이제 PC에서<br>확인하고 모아보고 관리하세요.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="col right">
+                <div class="container">
+                    <div class="content-text">
+                        <img src="./images/contents_icon_01.png" alt=""class="text-icon">
+                        <h2>휴대폰으로 걸려온 전화,<br>PC에서 바로 통화하기</h2>
+                        <p>업무가 바쁠수록 빛나는 콜싱크!<br>업무 중 PC에서 자유자재로 전화를 걸고 받아보세요.</p>
+                        <span>PC에서 음성통화 기능은 전화번호 인증에서 SKT 부가서비스에<br>가입해야 이용 가능합니다.</span>
+                    </div>
+                    <div class="content-img">
+                        <img src="./images/section2.png" alt="" style="width:100%;">
+                    </div>
+                </div>
+            </section>
+            <section class="col">
+                <div class="container">
+                    <div class="content-img">
+                        <img src="./images/section3.png" alt="" style="width:100%;">
+                    </div>
+                    <div class="content-text">
+                        <img src="./images/contents_icon_03.png" alt=""class="text-icon">
+                        <h2>문자에 모바일웹을 연결하여<br>다양한 기능을 하는 링크문자!</h2>
+                        <p>설문 페이지를 간편하게 만들고 문자로 발송해보세요.<br>더욱 다양한 링크 페이지들을 준비 중입니다. </p>
+                    </div>
+                </div>
+            </section>
+            <section class="row">
+                <div class="container">
+                    <img src="./images/contents_icon_04.png" alt=""class="text-icon">
+                    <h2><small>나 답게, 내 PC에 가장 어울리게</small><br>나에게 맞게 설정하는 테마 기능</h2>
+                    <span>PC 앱의 색상과 배경화면을 변경하고 나와 어울리는 모습을 찾아보세요. </span>
+                    <div class="content-img">
+                        <img src="./images/theme.png" alt="" style="width:100%;">
                     </div>
                 </div>
             </section>
             <footer>
-
+                <div class="container">
+                    <a href="#" class="logo">
+                        <img src="./images/logo.svg" alt="callsync logo">
+                    </a>
+                    <ul>
+                        <li><a href="#">서비스 이용약관</a></li>
+                        <li><a href="#">개인정보취급방침</a></li>
+                        <li><a href="#">위치정보 이용약관</a></li>
+                    </ul>
+                    <p>COPYRIGHT 2016 SK Telecom. All RightS Reserved</p>
+                </div>
             </footer>
             </div>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script>
+
+        </script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
