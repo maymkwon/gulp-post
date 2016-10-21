@@ -105,9 +105,9 @@ audio:not([controls]){
 /**
  * Remove the gray background color from active links in IE 10.
  */
-a{
+/*a {
   background-color: transparent;
-}
+}*/
 /**
  * Improve readability of focused elements when they are also in an
  * active/hover state.
@@ -415,6 +415,18 @@ header{
     z-index: 999;
     transition: all 0.5s;
 }
+header.sticky, .sub header{
+  background-color: #ffffff;
+  background-color: rgba(255,255,255,0.9);
+  box-shadow: 1px 0 1px rgba(51,51,51,0.3);
+}
+header.sticky nav li a, .sub header nav li a{
+  color:#333
+}
+header.sticky .logo, .sub header .logo{
+  background: url('../images/logo_color.svg') no-repeat;
+  background-position: center;
+}
 header .logo{
   background: url('../images/logo.svg') no-repeat;
   width: 139px;
@@ -454,18 +466,6 @@ header nav ul li a{
   display: block;
   font-size: 18px;
   padding: 0 30px;
-}
-header.sticky{
-  background-color: #ffffff;
-  background-color: rgba(255,255,255,0.9);
-  box-shadow: 1px 0 1px rgba(51,51,51,0.3);
-}
-header.sticky nav li a{
-  color: #333;
-}
-header.sticky .logo{
-  background: url('../images/logo_color.svg') no-repeat;
-  background-position: center;
 }
 .content-text, .content-img{
     width: calc(99.9% * 1/2 - (30px - 30px * 1/2));
@@ -525,19 +525,17 @@ main{
     height: 800px;
     background: url('../images/circle.png') no-repeat,linear-gradient(to bottom, #48cddc, #5391db );
     background-position: 66% -63px , 0 0;
-    /*background-blend-mode: multiply;*/
+    background-blend-mode: multiply;
 }
 main:before{
   /* fallback */
   /*background-color: #1a82f7;*/
-  /*background-blend-mode: multiply;*/
   content: '';
   display: table;
 }
 main:after{
   /* fallback */
   /*background-color: #1a82f7;*/
-  /*background-blend-mode: multiply;*/
   content: '';
   display: table;
   clear: both;
@@ -677,7 +675,7 @@ main .content-img img{
           transform: translateY(200px)
 }
 main .content-img img.main{
-  transition: all 0.7s ease-out;
+  transition: all 0.5s ease-out;
   right: 25px;
   z-index: 1;
 }
@@ -794,7 +792,45 @@ section.row .container .content-img img{
 }
 
 .form{
-    top:70px;
+    margin-top: 76px;
+    padding: 0;
+}
+
+.form .faq-tit{
+  text-align: center;
+  background-color: #333;
+}
+
+.form .faq-tit h2{
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.form .faq-tit p{
+  font-size: 18px;
+  color:#414141;
+}
+
+
+.form-list-wrap{
+    margin-top: 60px;
+    border-top: 2px solid #373737;
+}
+
+.form-list .form-subject{
+  display: block;
+  border-bottom: 1px solid #dedede;
+  font-size: 18px
+}
+
+.form-list .form-subject:focus{
+  color: red;
+}
+
+.form-list .form-content{
+  background-color: #f8f8f8;
+  font-size: 16px;
+  padding-left: 60px;
 }
 footer{
     background-color: #3c3c3c;
@@ -802,8 +838,10 @@ footer{
     padding: 34px 0;
 }
 footer .logo{
-  margin-bottom: 35px;
   display: block;
+  width: 139px;
+  height: 40px;
+  margin: 0 auto 35px;
 }
 footer img{
   opacity: 0.5;

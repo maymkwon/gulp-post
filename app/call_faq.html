@@ -20,7 +20,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div class="body_wrap">
+        <div class="body_wrap sub">
             <header class="header">
                 <div class="header_wrap">
                     <h1>
@@ -39,14 +39,33 @@
                 </div>
             </header>
             <section class="form">
-                <ul class="form-list-wrap">
-                    <li class="form-list">
-                        <a href="">Lorem ipsum dolor sit amet</a>
-                        <div class="form-content">
-                            consectetur adipisicing elit. Officia inventore quam illo provident excepturi aspernatur nobis ex omnis. Perferendis quibusdam non atque et earum, placeat tempora libero quis aspernatur ad.
-                        </div>
-                    </li>
-                </ul>
+                <div class="faq-tit">
+                    <h2>FAQ</h2>
+                    <p>자주묻는 질문</p>
+                </div>
+                <div class="container">
+                    <ul class="form-list-wrap">
+                        <li class="form-list">
+                            <div class="form-subject">서비스의 주요 기능은?</div>
+                            <div class="form-content">
+                                consectetur adipisicing elit. Officia inventore quam illo provident excepturi aspernatur nobis ex omnis. Perferendis quibusdam non atque et earum, placeat tempora libero quis aspernatur ad.
+                            </div>
+                        </li>
+                        <li class="form-list">
+                            <div class="form-subject">서비스의 주요 기능은?</div>
+                            <div class="form-content">
+                                consectetur adipisicing elit. Officia inventore quam illo provident excepturi aspernatur nobis ex omnis. Perferendis quibusdam non atque et earum, placeat tempora libero quis aspernatur ad.
+                            </div>
+                        </li>
+                        <li class="form-list">
+                            <div  class="form-subject">서비스의 주요 기능은?</div>
+                            <div class="form-content">
+                                consectetur adipisicing elit. Officia inventore quam illo provident excepturi aspernatur nobis ex omnis. Perferendis quibusdam non atque et earum, placeat tempora libero quis aspernatur ad.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
             </section>
             <footer>
                 <div class="container">
@@ -66,7 +85,10 @@
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script>
-
+            $('.form-list').on('click' , function () {
+                $('.form-list').addClass('active');
+                $(this).slideToggle();
+            });
         </script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>

@@ -48,6 +48,7 @@ gulp.task('watch', function () {
 // /////////////////////////////////
 gulp.task('script', function(){
     gulp.src(paths.jsSource + '**/*.js')
+    .pipe(gulp.dest(paths.jsDestination))
     .pipe(rename({suffix:'.min'}))
     .pipe(uglify())
     .pipe(gulp.dest(paths.jsDestination))

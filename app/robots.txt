@@ -1,5 +1,4 @@
-# www.robotstxt.org/
+Sitemap: http://callsync.com/sitemap.xml
 
 # Allow crawling of all content
 User-agent: *
-Disallow:
