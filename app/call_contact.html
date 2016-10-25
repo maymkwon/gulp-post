@@ -3,15 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <title>T Callsync</title>
+        <meta name="description" content="가장 쉽고 빠르게, PC에서 문자와 전화를 관리하는 방법! T Callsync">
+        <meta name="viewport" content=""width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable="no">
+        <meta name="Subject" content="문자와 전화를 관리">
+        <meta name="Title" content="T콜싱크">
+        <meta name="Keywords" content="문자 전화 SMS 관리">
+        <meta name="Author" content=" SKTelecom">
+        <meta name="Publisher" content=" SKTelecom">
+        <meta name="Reply-To(Email)" content=" tcallsync@tcallsync.com">
+        <meta name="Location" content="South Korea Seoul">
+        <meta name="Distribution" content=" SKTelecom">
+        <meta name="Copyright" content=" SKTelecom">
+        <meta name="Robots" content="ALL">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.min.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -20,7 +29,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div class="body_wrap">
+        <div class="body_wrap sub">
             <header class="header">
                 <div class="header_wrap">
                     <h1>
@@ -38,7 +47,31 @@
                     </nav>
                 </div>
             </header>
-            
+            <section class="form contact">
+                <div class="form-tit">
+                    <h2>Contact us</h2>
+                    <p>문의하기</p>
+                </div>
+                <div class="container">
+                    <form action="" method="post" name="contact_us" class="contact_us">
+                        <fieldset>
+                            <legend>도움이 필요하신가요?</legend>
+                            <label for="email">
+                                연락 받을 이메일
+                            </label>
+                            <input type="email" id="email" placeholder="메일 주소를 적어주세요."  onchange="hideIcon(this);">
+                            <label>내용</label>
+                            <textarea id="text"name="name" rows="8" cols="40" placeholder="문의할 내용을 작성해 주세요." onchange="hideIcon(this);" ></textarea>
+
+                            <button type="submit" >보내기</button>
+                        </fieldset>
+                    </form>
+
+
+
+                </div>
+
+            </section>
             <footer>
                 <div class="container">
                     <a href="#" class="logo">
@@ -57,6 +90,16 @@
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script>
+        function hideIcon(self) {
+            self.style.backgroundImage = 'none';
+            self.style.textIndent = '0';
+            }
+
+        </script>
+        <script type="text/javascript">
+        <!--
+          breadcrumbs()
+        //-->
 
         </script>
         <script src="js/plugins.js"></script>
