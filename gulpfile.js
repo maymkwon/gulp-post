@@ -74,7 +74,7 @@ var processors =[
         precss({}),
         lost,
         rucksack({  fallbacks: true }),
-        autoprefixer({ browsers: ['last 3 versions'] }),
+        autoprefixer(),
         colorRgbaFallback,
         styleGuide({
                 project: 'Project name',
